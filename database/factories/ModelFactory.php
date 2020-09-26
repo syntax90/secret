@@ -2,7 +2,7 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\User;
+use App\DataObject;
 use Faker\Generator as Faker;
 
 /*
@@ -16,9 +16,10 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(User::class, function (Faker $faker) {
+$factory->define(DataObject::class, function (Faker $faker) {
     return [
-        'name' => $faker->name,
-        'email' => $faker->email,
+        'key' => $faker->unique()->word,
+        'value' => $faker->randomNumber(8),
+        'revision' => 1
     ];
 });

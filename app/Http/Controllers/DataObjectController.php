@@ -45,6 +45,6 @@ class DataObjectController extends Controller
             ]);
             $statusCode = 201;
         }
-        return response()->json($object)->setStatusCode($statusCode);
+        return response()->json(['message' => 'Resource saved successfully.'])->setStatusCode($statusCode);
     }
 }

@@ -2,6 +2,7 @@
 - Laravel Lumen (To build HTTP API)
 - GitHub (GitHub Actions for CI/CD)
 - Heroku (Hosting & Webhook to deploy to hosting server if no errors)
+- MySQL
 
 ## Files & Folders of Interest
 - app\DataObject.php

@@ -17,6 +17,7 @@ $router->get('/', function () use ($router) {
 
 $router->group(['prefix' => 'api'], function () use ($router) {
     $router->get('object', ['uses' => 'DataObjectController@index']);
+    $router->get('object/history', ['uses' => 'DataObjectController@historyIndex']);
     $router->get('object/{key}', ['uses' => 'DataObjectController@show']);
     $router->post('object', ['uses' => 'DataObjectController@post']);
 });

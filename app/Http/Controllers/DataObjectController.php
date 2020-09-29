@@ -6,13 +6,15 @@ use App\DataObject;
 use App\DataObjectHistory;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class DataObjectController extends Controller
 {
     public function index() {
-        $allRecords = app('db')->select("SELECT * FROM data_objects");
-        return json_encode($allRecords);
+        return response()->json(DataObject::all());
+    }
+
+    public function historyIndex() {
+        return response()->json(DataObjectHistory::all());
     }
 
     public function show($key)

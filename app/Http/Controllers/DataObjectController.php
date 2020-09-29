@@ -11,8 +11,8 @@ use Illuminate\Support\Facades\DB;
 class DataObjectController extends Controller
 {
     public function index() {
-        $allRecords = DB::table('data_objects')->get();
-        return response()->json($allRecords);
+        $allRecords = app('db')->select("SELECT * FROM data_objects");
+        return json_encode($allRecords);
     }
 
     public function show($key)

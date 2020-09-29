@@ -12,7 +12,7 @@
 */
 
 $router->get('/', function () use ($router) {
-    return "Hello";
+    return "Hello2";
 });
 
 $router->group(['prefix' => 'api'], function () use ($router) {

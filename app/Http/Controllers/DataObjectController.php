@@ -9,6 +9,10 @@ use Illuminate\Http\Request;
 
 class DataObjectController extends Controller
 {
+    public function index() {
+        return response()->json(DataObject::all());
+    }
+
     public function show($key)
     {
         $timestamp = request()->input('timestamp');

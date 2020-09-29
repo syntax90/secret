@@ -6,11 +6,13 @@ use App\DataObject;
 use App\DataObjectHistory;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DataObjectController extends Controller
 {
     public function index() {
-        return response()->json(DataObject::all());
+        $allRecords = DB::table('data_objects')->get();
+        return response()->json($allRecords);
     }
 
     public function show($key)
@@ -23,7 +25,8 @@ class DataObjectController extends Controller
             $record = DataObject::where('key', $key)->first();
         }
         if ($record) {
-            return response()->json($record->value)->setStatusCode(200);
+            return json_encode($record->value);
+            // return response()->json($record->value)->setStatusCode(200);
         } else {
             return response()->json(['message' => 'Resource not found.'])->setStatusCode(404);
         }

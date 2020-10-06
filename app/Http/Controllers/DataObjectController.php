@@ -54,6 +54,7 @@ class DataObjectController extends Controller
             ]);
             $statusCode = 201;
         }
-        return response()->json(['message' => 'Resource saved successfully.'])->setStatusCode($statusCode);
+        $timestampNum = strtotime($object->created_at);
+        return response()->json(['message' => 'Resource saved successfully.', 'timestamp' => $timestampNum])->setStatusCode($statusCode);
     }
 }
